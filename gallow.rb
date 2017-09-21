@@ -8,20 +8,21 @@ if (Gem.win_platform?)
 end
 
 require_relative "game.rb"
-require_relative "printer.rb"
-require_relative "reader.rb"
+require_relative "result_printer.rb"
+require_relative "word_reader.rb"
 require "unicode_utils/upcase"
 
 system "cls"
-puts "Игра Gallows. (\"Good Programmer\" course)"
-sleep 0.5
+puts "Gallow Game. Version 3.2. Classes, external files. Register control, exception Handling\n" \
+ "'Good Programmer' course"
+sleep 1
 
-printer = Printer.new
-reader = Reader.new
-game = Game.new(reader.word)
+printer = ResultPrinter.new
+reader = WordReader.new
+game = Game.new(reader.read_from_file)
 
 printer.print_status(game)
 while game.status == 0 do
-  game.get_letter
+  game.ask_next_letter
   printer.print_status(game)
 end
