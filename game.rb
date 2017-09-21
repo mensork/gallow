@@ -1,5 +1,6 @@
 class Game
   attr_reader :status, :bad_letters, :good_letters, :errors, :letters
+
   def initialize(slovo)
     @letters = get_letters(slovo)
     @good_letters = []

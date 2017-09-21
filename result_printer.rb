@@ -6,7 +6,7 @@ class ResultPrinter
       file_path = __dir__ + "/images/#{counter}.txt"
       begin
         File.exist?(file_path)
-        file = File.new(file_path,"r:UTF-8")
+        file = File.new(file_path, "r:UTF-8")
         @status_images << file.read
         file.close
       rescue
