@@ -1,13 +1,18 @@
-Gallow Game. Version 3.2.
-Training to work with classes, methods and .txt files
-Classes, using .txt files, register control, exception handling etc.
+### Игра "Виселица"
 
-How to play:
-Run in the console "gallows.rb"
-The word in Russian is taken automatically from a text file.
-Enter letters until you guess the whole word.
-You can make a mistake 7 times.
-There is no difference between letters "Е" and "Ё", and also "И" and "Й"
+Программа реализует игру "Виселица"
 
-Enjoy the game!
+[Ссылка на описание игры](https://ru.wikipedia.org/wiki/Виселица_(игра)).
 
+Программа написана на Ruby, версия 2.4.2
+Для запуска необходимо скачать [дистрибутив Ruby](https://www.ruby-lang.org/ru/downloads/).
+
+Открыть программу можно в консоли, перейдя в папку с программой и написав:
+
+` ruby gallows.rb `
+
+При запуске генерируется случайное слово на русском языке. Задача игрока - отгадать загаданное слово, вводя буквы в консоли, пока слово не будет отгадано целиком. Игрок проиграет, если ошибётся семь раз.
+Программа не видит разницы между буквами "е","ё", а также "и", "й".
+
+
+Автор: Кирилл Носенко. Создано при поддержке [goodprogrammer.ru](http://goodprogrammer.ru/)
