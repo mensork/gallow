@@ -26,28 +26,28 @@ class Game
     check_input(UnicodeUtils.upcase(letter))
   end
 
-  def check_input(bukva)
+  def check_input(letter)
     if @status == 1 || @status == 1
       return
     end
 
-    if bad_letters.include?(bukva) || good_letters.include?(bukva)
+    if bad_letters.include?(letter) || good_letters.include?(letter)
       return
     end
 
-    if letters.include?(bukva) ||
-      bukva == "е" && letters.include?("ё") ||
-      bukva == "ё" && letters.include?("е") ||
-      bukva == "и" && letters.include?("й") ||
-      bukva == "й" && letters.include?("и")
-      good_letters << bukva
-      if bukva == "е"
+    if letters.include?(letter) ||
+      letter == "е" && letters.include?("ё") ||
+      letter == "ё" && letters.include?("е") ||
+      letter == "и" && letters.include?("й") ||
+      letter == "й" && letters.include?("и")
+      good_letters << letter
+      if letter == "е"
         good_letters << "ё"
-      elsif bukva == "ё"
+      elsif letter == "ё"
         good_letters << "е"
-      elsif bukva == "и"
+      elsif letter == "и"
         good_letters << "й"
-      elsif bukva == "й"
+      elsif letter == "й"
         good_letters << "и"
       end
 
@@ -56,7 +56,7 @@ class Game
       end
 
     else
-      bad_letters << bukva
+      bad_letters << letter
       @errors += 1
     end
 
