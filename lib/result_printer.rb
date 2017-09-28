@@ -1,9 +1,9 @@
 class ResultPrinter
-  def initialize
+  def initialize(game)
     @status_images = []
     counter = 0
-    while counter <= 7
-      file_path = __dir__ + "/images/#{counter}.txt"
+    while counter <= game.max_errors
+      file_path = __dir__ + "/../images/#{counter}.txt"
       begin
         File.exist?(file_path)
         file = File.new(file_path, "r:UTF-8")
@@ -19,15 +19,16 @@ class ResultPrinter
 
   def print_status(game)
     cls
+    puts game.version
     puts "\nWord: #{get_word_for_print(game.letters, game.good_letters)}"
     puts "Errors: #{game.errors}.   #{game.bad_letters.join(", ")}"
     print_gallow(game.errors)
-    if game.status == -1
+    if game.lost?
       puts "You lose. The word is : #{game.letters.join("")}"
-    elsif game.status == 1
+    elsif game.won?
       puts "Congratulations! You won!"
     else
-      puts "Remaining attempts: #{7-game.errors}"
+      puts "Remaining attempts: #{game.errors_left}"
     end
   end
 

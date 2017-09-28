@@ -7,22 +7,27 @@ if (Gem.win_platform?)
   end
 end
 
-require_relative "game.rb"
-require_relative "result_printer.rb"
-require_relative "word_reader.rb"
+current_path = File.dirname(__FILE__)
+require_relative current_path + "/lib/game.rb"
+require_relative current_path + "/lib/result_printer.rb"
+require_relative current_path + "/lib/word_reader.rb"
 require "unicode_utils/upcase"
 
 system "cls"
-puts "Gallow Game. Version 3.2. Classes, external files. Register control, exception Handling\n" \
+VERSION = "Gallow Game. Version 3.2. Classes, external files. Register control, exception Handling\n" \
  "'Good Programmer' course"
 sleep 1
 
-printer = ResultPrinter.new
 reader = WordReader.new
-game = Game.new(reader.read_from_file)
+words_file_name = current_path + "/../data/words.txt"
+word = reader.read_from_file(words_file_name)
+game = Game.new(word)
+printer = ResultPrinter.new(game)
+
+game.version = VERSION
 
 printer.print_status(game)
-while game.status == 0 do
+while game.in_progress? do
   game.ask_next_letter
   printer.print_status(game)
 end
