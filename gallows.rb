@@ -19,7 +19,7 @@ VERSION = "Gallow Game. Version 3.2. Classes, external files. Register control, 
 sleep 1
 
 reader = WordReader.new
-words_file_name = current_path + "/../data/words.txt"
+words_file_name = current_path + "/data/words.txt"
 word = reader.read_from_file(words_file_name)
 game = Game.new(word)
 printer = ResultPrinter.new(game)
