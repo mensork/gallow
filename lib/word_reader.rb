@@ -5,12 +5,10 @@ class WordReader
 
   def read_from_file(file_name)
     begin
-      file = File.new(file_name, "r:UTF-8")
+      lines = File.readlines(file_name, encoding: 'UTF-8')
     rescue SystemCallError => error
       abort "FILE '#{file_name}' NOT FOUND.\n" + error.message
     end
-    f = file.readlines
-    file.close
-    f.sample.upcase.chomp
+    lines.sample.chomp
   end
 end
