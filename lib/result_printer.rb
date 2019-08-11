@@ -22,7 +22,7 @@ class ResultPrinter
     puts game.version
     puts "\nWord: #{get_word_for_print(game.letters, game.good_letters)}"
     puts "Errors: #{game.errors}.   #{game.bad_letters.join(", ")}"
-    print_gallow(game.errors)
+    print_gallows(game.errors)
     if game.lost?
       puts "You lose. The word is : #{game.letters.join("")}"
     elsif game.won?
@@ -44,7 +44,7 @@ class ResultPrinter
     result
   end
 
-  def print_gallow(errors)
+  def print_gallows(errors)
     puts @status_images[errors]
   end
 
