@@ -14,7 +14,7 @@ class Game
     if word == nil || word == ""
       abort "Enter argument"
     else
-      word.split("")
+      word.upcase.split("")
     end
   end
 
